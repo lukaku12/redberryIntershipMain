@@ -1,0 +1,164 @@
+.wrapper {
+  width: 100vw;
+  background: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: -1;
+  font-style: italic;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
+  height: 100%;
+}
+.headingText {
+  color: white;
+  text-align: center;
+  font-size: 4.5vmax;
+}
+.appWrapper {
+  display: flex;
+  width: 100%;
+  height: 52px;
+  background: #fe3b1f;
+  justify-content: space-between;
+  align-self: center;
+  padding: 0rem 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  list-style-type: decimal;
+  color: white;
+}
+.appWrapper li {
+  color: white;
+  padding-top: 15px;
+  margin-left: 15px;
+}
+.fetchedApps {
+  margin-top: 30px;
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0;
+}
+.button {
+  border: none;
+  background: none;
+  pointer-events: none;
+  user-select: none;
+  cursor: pointer;
+}
+.hideApps {
+  position: absolute;
+  border: none;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background: #fe3b1f;
+  border-radius: 7px;
+  font-size: 2rem;
+}
+.hideApps:hover {
+  color: white;
+  box-shadow: 0px 0px 5px white;
+}
+.padder {
+  display: grid;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.listContainer {
+  background: white;
+}
+.listItems h2 {
+  color: #fe3b1f;
+  padding: 2rem 0rem;
+  text-decoration: underline;
+  font-style: italic;
+}
+.listFlex {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+.rightDiv {
+  width: 70%;
+}
+.textArea {
+  border: 1px solid black;
+  width: 100%;
+  max-width: 447px;
+  min-height: 122px;
+  padding: 2rem;
+  margin-right: auto;
+  text-align: start;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  resize: none;
+}
+.skillItems {
+  display: flex;
+  gap: 20%;
+}
+.skillset{
+  margin-left: 50px;
+}
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    text-align: center;
+  }
+  .padder {
+    background: white;
+    display: grid;
+    grid-template-columns: auto;
+    padding: 2rem;
+  }
+  .listFlex {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+  }
+  .rightDiv {
+    width: 30%;
+  }
+  .textArea {
+    border: 1px solid black;
+    width: 100%;
+    max-width: 447px;
+    min-height: 122px;
+    padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: start;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+  .fetchedApps {
+    margin: 0;
+    padding: 0;
+  }
+  .skillItems {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .skillset{
+    margin-left: 0px;
+  }
+}

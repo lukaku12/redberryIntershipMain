@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useSelector } from "react-redux";
+import FormUser from "./components/FormUser/FormUser";
+import LandingPage from "./components/LandingPage/LandingPage";
+import { getCurrentPage } from "./components/store/pageSlice";
 
-function App() {
+const App = () => {
+  const currentPage = useSelector(getCurrentPage);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      {currentPage === 0 && <LandingPage />}
+      {currentPage > 0 && <FormUser />}
+    </React.Fragment>
   );
-}
+};
 
 export default App;

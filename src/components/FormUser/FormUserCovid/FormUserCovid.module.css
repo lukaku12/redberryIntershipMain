@@ -1,0 +1,31 @@
+.mainSection {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.radioInput {
+  display: flex;
+  align-items: center;
+}
+.radioInput input {
+  margin: 0;
+}
+
+.dateInput {
+  margin-top: 30px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  max-width: 455px !important;
+  width: 100% !important;
+}
+
+.mainSection label:not(:first-child){
+  margin-top: 30px;
+}
+.mainSection label{
+  font-size: 1.2rem;
+  margin-bottom: 15px ;
+}

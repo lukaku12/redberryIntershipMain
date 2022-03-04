@@ -1,0 +1,61 @@
+.buttons {
+  margin: 100px;
+  display: flex;
+  gap: 15px;
+}
+.arrow {
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 50%;
+  color: #fe3b1f;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bolder;
+  background: none;
+  transition: 300ms;
+}
+.index {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: none;
+  background-color: #fe3b1f;
+  opacity: 0.2;
+  transition: 300ms;
+  cursor: default !important;
+}
+.active {
+  background-color: #fe3b1f;
+  cursor: pointer;
+  opacity: 1;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: none;
+  transition: 300ms;
+}
+.arrow:hover {
+  background-color: #ffc0b6;
+  transition: 300ms;
+}
+.disabled{
+  width: 18px;
+  height: 18px;
+  border: 3px solid #fe3b1f;
+  border-radius: 50%;
+  color: #fe3b1f;
+  text-align: center;
+  cursor: default !important;
+  font-weight: bolder;
+  border: none;
+  background: none;
+  opacity: .5;
+  transition: 300ms;
+}
+.nextBtn, .prevBtn{
+  width: 100%;
+  height: 100%;
+  margin-bottom: 13px;
+  pointer-events: none;
+}

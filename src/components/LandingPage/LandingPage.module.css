@@ -1,0 +1,95 @@
+.landingPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0c0d0e;
+}
+.backgroundImage {
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  position: absolute;
+  pointer-events: none;
+}
+.greet {
+  color: #fe3b1f;
+  font-size: 6em;
+  margin-bottom: 100px;
+  text-align: center;
+}
+.startDiv {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  min-width: 395px;
+}
+.startQuest {
+  width: 80%;
+  max-width: 395px;
+  height: 79px;
+  cursor: pointer;
+  font-size: 24px;
+  background-color: #fe3b1f;
+  border: none;
+  border-radius: 50px;
+}
+.submitted {
+  color: #aeaeae;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 300px;
+  text-decoration: underline;
+}
+.astro {
+  position: absolute;
+  bottom: 30px;
+  pointer-events: none;
+}
+.loading{
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media only screen and (max-width: 600px) {
+  .landingPage {
+    overflow: hidden;
+  }
+  .greet {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 600px), screen and (max-height: 850px) {
+  .greet {
+    margin-bottom: 0px;
+  }
+  .landingPage {
+    justify-content: space-around;
+  }
+  .astro {
+    display: none;
+  }
+  .greet {
+    font-size: 2rem;
+  }
+  .submitted{
+    margin-bottom: 0;
+  }
+}
