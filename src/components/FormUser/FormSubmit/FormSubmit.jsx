@@ -19,6 +19,7 @@ const FormSubmit = () => {
   const { firstName, lastName, email, tel } = validationData;
   const { preferWork, vaccinated, vaccineWhen, covid19, whenCovid19 } =
     savedCovidData;
+
   const { attend, AboutDevTalk, tellUs } = savedAboutYouData;
 
   let hadCovid;
@@ -50,9 +51,9 @@ const FormSubmit = () => {
     skills: [...savedSkills],
     work_preference: preferWork,
     had_covid: hadCovid,
-    had_covid_at: whenCovid19,
+    ...(whenCovid19 !== "" && { had_covid_at: whenCovid19 }),
     vaccinated: hadVaccine,
-    vaccinated_at: vaccineWhen,
+    ...(vaccineWhen !== "" && { vaccinated_at: vaccineWhen }),
     will_organize_devtalk: willOrganize,
     devtalk_topic: AboutDevTalk,
     something_special: tellUs,
@@ -64,7 +65,7 @@ const FormSubmit = () => {
         method: "POST",
         body: JSON.stringify(submitedData),
         headers: {
-          "accept": "application/json",
+          accept: "application/json",
           "Content-Type": "application/json",
         },
       });

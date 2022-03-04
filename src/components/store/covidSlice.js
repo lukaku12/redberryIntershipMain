@@ -43,7 +43,7 @@ const covidSlice = createSlice({
             state.error = "";
           } else {
             state.validCovidInfo = false;
-            state.error = "All Fields Are Required!";
+            state.error = "Please Enter Date!";
           }
         } else if (state.covid19 === "yes" && state.vaccinated === "no") {
           if (state.whenCovid19 !== "") {
@@ -51,7 +51,7 @@ const covidSlice = createSlice({
             state.error = "";
           } else {
             state.validCovidInfo = false;
-            state.error = "All Fields Are Required!";
+            state.error = "Please Enter Date!";
           }
         } else if (state.covid19 === "no" && state.vaccinated === "yes") {
           if (state.vaccineWhen !== "") {
@@ -59,7 +59,7 @@ const covidSlice = createSlice({
             state.error = "";
           } else {
             state.validCovidInfo = false;
-            state.error = "All Fields Are Required!";
+            state.error = "Please Enter Date!";
           }
         } else {
           state.validCovidInfo = true;

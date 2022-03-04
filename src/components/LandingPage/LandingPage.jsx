@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import styles from "./LandingPage.module.css";
-import stars from "../assets/stars.png";
+import stars from "../assets/starss.png";
 import rocketman from "../assets/rocketman.png";
 import { useDispatch } from "react-redux";
 import { renderNextPage } from "../store/pageSlice";
 import SubmittedApps from "./SubmittedApps";
 import { Spinner } from "react-bootstrap";
+import { gsap } from "gsap";
 import TOKEN from "../Validation/Token";
 
 const LandingPage = () => {
@@ -14,13 +15,32 @@ const LandingPage = () => {
   const [appsAreVisible, setAppsAreVisible] = useState(false);
   const [fetchedData, setFetchedData] = useState([]);
   const dispatch = useDispatch();
+  const astroRef = useRef();
+
   const startForm = () => {
     dispatch(renderNextPage());
   };
+
+  useEffect(() => {
+    gsap.fromTo(
+      astroRef.current,
+      { x: "0", y: "0", rotate: "0deg", duration: 2 },
+      {
+        x: "10",
+        y: "-20",
+        z: "-100",
+        repeat: "-1",
+        yoyoEase: true,
+        yoyo: true,
+        duration: 2,
+      }
+    );
+  }, []);
+
   const fetchApplications = async () => {
     setisLoading(true);
     const response = await fetch(
-      "https://bootcamp-2022.devtest.ge/api/applications?token="+ TOKEN
+      "https://bootcamp-2022.devtest.ge/api/applications?token=" + TOKEN
     );
     const data = await response.json();
     const loadedData = [];
@@ -68,7 +88,12 @@ const LandingPage = () => {
               Submitted Applications
             </button>
           </div>
-          <img className={styles.astro} src={rocketman} alt="RocketMan" />
+          <img
+            className={styles.astro}
+            src={rocketman}
+            alt="RocketMan"
+            ref={astroRef}
+          />
           {isLoading && <Spinner animation="border" variant="danger" />}
         </div>
       ) : (

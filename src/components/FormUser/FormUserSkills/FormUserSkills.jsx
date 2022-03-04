@@ -97,7 +97,8 @@ const FormUserSkills = () => {
             <img src={vectorImg} alt="↓" />
           </button>
         </div>
-        {fetchedDataIsVisible && languageList}
+        <div className={styles.wrap}>{fetchedDataIsVisible && languageList}</div>
+
         <input
           type="number"
           name="experience"

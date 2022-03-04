@@ -8,6 +8,10 @@
   padding: 0rem 1rem;
   color: #fe3b1f;
   cursor: pointer;
+  border-radius: 5px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  position: relative;
 }
 .skills button {
   color: #fe3b1f;
@@ -25,7 +29,11 @@
   border: 1px solid black;
   justify-content: space-between;
   align-items: center;
-  padding: 0rem 1rem;
+  padding: 1rem;
+  align-items: center;
+}
+.skillList p{
+  margin-top: 15px;
 }
 .userSkillsDiv {
   display: flex;
@@ -61,14 +69,24 @@
 .experience {
   width: 100% !important;
 }
+.wrap{
+  box-shadow: 0px 3px 10px rgb(68, 68, 68);
+  border-radius: 5px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  position: absolute;
+  z-index: 500;
+  width: 80%;
+  background-color: white;
+  max-width: 455px !important;
+}
 .items {
   display: flex;
-  align-content: center;
-  border: 1px solid black;
-  height: 30px;
-  max-width: 455px;
+  height: 40px;
+  max-width: 455px !important;
+  width: 100%;
   border-top: none;
-  justify-content: center;
+  text-align: start;
 }
 .items button{
   border: none;
@@ -76,6 +94,13 @@
   cursor: pointer;
   width: 100%;
   height: 100%;
+  text-align: start;
+  padding-left: 10px;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+.items button:hover{
+  background-color: rgb(255, 147, 128);
 }
 .animateBtn{
   transform: rotatez(180deg);
@@ -97,4 +122,10 @@
 .listRemover:hover {
   background: #ffafa3;
   transition: 300ms;
+}
+
+@media only screen and (max-width: 600px) {
+  .addSkill {
+    padding: 2rem;
+  }
 }

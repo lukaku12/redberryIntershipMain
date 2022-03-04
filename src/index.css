@@ -18,12 +18,33 @@ code {
 }
 .spinner-border {
   position: absolute;
-  top: calc(5% - 2rem);
+  top: calc(5% - 1rem);
   left: calc(50% - 2rem);
   width: 4rem !important;
   height: 4rem !important;
 }
-.general-error{
+.general-error {
   margin-top: 1.5rem;
   color: red;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(150, 150, 150);
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ff563c;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px black;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff0000;
 }
