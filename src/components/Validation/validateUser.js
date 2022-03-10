@@ -55,12 +55,14 @@ const validateUser = (values) => {
     }
   }
   ///////////////////tel//////////
-
+  if (values.tel.length === 0) {
+    errors.telError = "";
+  }
   if (values.tel.length) {
     if (!values.tel.trim().startsWith("+995") && values.tel.length >= 1) {
       errors.telError = "ეს ველი უნდა იწყებოდეს +995-ით";
     } else if (values.tel.includes("-")) {
-      errors.telError = 'ნომერი არ უნდა შეიცავდეს [ - ] სიმბოლოს ';
+      errors.telError = "ნომერი არ უნდა შეიცავდეს [ - ] სიმბოლოს ";
     } else if (values.tel.length !== 13) {
       errors.telError = "გთხოვთ შეიყვანეთ სწორი ნომერი";
     } else if (

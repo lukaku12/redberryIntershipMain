@@ -51,11 +51,11 @@ const FormSubmit = () => {
     skills: [...savedSkills],
     work_preference: preferWork,
     had_covid: hadCovid,
-    ...(whenCovid19 !== "" && hadCovid === true && { had_covid_at: whenCovid19 }),
+    ...(hadCovid && { had_covid_at: whenCovid19 }),
     vaccinated: hadVaccine,
-    ...(vaccineWhen !== "" && hadVaccine === true && { vaccinated_at: vaccineWhen }),
+    ...(hadVaccine && { vaccinated_at: vaccineWhen }),
     will_organize_devtalk: willOrganize,
-    devtalk_topic: AboutDevTalk,
+    ...(willOrganize && { devtalk_topic: AboutDevTalk }),
     something_special: tellUs,
   };
 

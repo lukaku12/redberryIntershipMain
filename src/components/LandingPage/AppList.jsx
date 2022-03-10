@@ -4,15 +4,23 @@ import vectorImg from "../assets/VectorWhite.png";
 import changer from "../Validation/changeIdToTitle";
 
 const AppList = ({ sentFetchedData, styles }) => {
-  const [toogle, setToogle] = useState(false);
-  const [test, setTest] = useState();
+  const [allOpenApps, setAllOpenApps] = useState([]);
+
   const createdData = sentFetchedData.map((data) => (
     <React.Fragment key={data.id}>
       <div
         className={styles.appWrapper}
         onClick={() => {
-          setTest([data].filter((test) => test.id === data.id));
-          setToogle(prevValue => !prevValue);
+          const openedApp = [data].filter((test) => test.id === data.id);
+          setAllOpenApps((prevGoals) => {
+            let updatedGoals = [...prevGoals];
+            if (updatedGoals.includes(...openedApp)) {
+              updatedGoals = prevGoals.filter((goal) => goal.id !== data.id);
+            } else {
+              updatedGoals.unshift(...openedApp);
+            }
+            return updatedGoals;
+          });
         }}
       >
         <li></li>
@@ -20,13 +28,11 @@ const AppList = ({ sentFetchedData, styles }) => {
           <img src={vectorImg} alt="↓" />
         </button>
       </div>
-      {test !== undefined &&
-        test.map(
+      {allOpenApps !== undefined &&
+        allOpenApps.map(
           (index) =>
-            index.id === data.id &&
-            toogle && (
+            index.id === data.id && (
               <React.Fragment key={index.id}>
-                {console.log()}
                 <div className={styles.listContainer}>
                   <div className={styles.padder}>
                     <div className={styles.listItems}>
@@ -72,7 +78,7 @@ const AppList = ({ sentFetchedData, styles }) => {
                     <div className={styles.listItems}>
                       <h2>Covid Situation</h2>
                       <h5>how would you prefer to work?</h5>
-                      <div style={{ display: "flex" }}>
+                      <div className={styles.radioInputDiv}>
                         <div className={styles.radioDivision}>
                           <div
                             className={
@@ -84,7 +90,7 @@ const AppList = ({ sentFetchedData, styles }) => {
                         </div>
                         <p>From Sairme Office</p>
                       </div>
-                      <div style={{ display: "flex" }}>
+                      <div className={styles.radioInputDiv}>
                         <div className={styles.radioDivision}>
                           <div
                             className={
@@ -96,7 +102,7 @@ const AppList = ({ sentFetchedData, styles }) => {
                         </div>
                         <p>From Home</p>
                       </div>
-                      <div style={{ display: "flex" }}>
+                      <div className={styles.radioInputDiv}>
                         <div className={styles.radioDivision}>
                           <div
                             className={
@@ -109,7 +115,7 @@ const AppList = ({ sentFetchedData, styles }) => {
                         <p>Hybrid</p>
                       </div>
                       <h5>Did you have covid 19?</h5>
-                      <div style={{ display: "flex" }}>
+                      <div className={styles.radioInputDiv}>
                         <div className={styles.radioDivision}>
                           <div
                             className={
@@ -121,7 +127,7 @@ const AppList = ({ sentFetchedData, styles }) => {
                         </div>
                         <p>yes</p>
                       </div>
-                      <div style={{ display: "flex" }}>
+                      <div className={styles.radioInputDiv}>
                         <div className={styles.radioDivision}>
                           <div
                             className={
@@ -143,7 +149,7 @@ const AppList = ({ sentFetchedData, styles }) => {
                         </React.Fragment>
                       )}
                       <h5>Have you been vaccinated?</h5>
-                      <div style={{ display: "flex" }}>
+                      <div className={styles.radioInputDiv}>
                         <div className={styles.radioDivision}>
                           <div
                             className={
@@ -155,7 +161,7 @@ const AppList = ({ sentFetchedData, styles }) => {
                         </div>
                         <p>yes</p>
                       </div>
-                      <div style={{ display: "flex" }}>
+                      <div className={styles.radioInputDiv}>
                         <div className={styles.radioDivision}>
                           <div
                             className={
@@ -185,7 +191,7 @@ const AppList = ({ sentFetchedData, styles }) => {
                         Would you attend Devtalks and maybe also organize your
                         own?
                       </h5>
-                      <div style={{ display: "flex" }}>
+                      <div className={styles.radioInputDiv}>
                         <div className={styles.radioDivision}>
                           <div
                             className={
@@ -197,7 +203,7 @@ const AppList = ({ sentFetchedData, styles }) => {
                         </div>
                         <p>yes</p>
                       </div>
-                      <div style={{ display: "flex" }}>
+                      <div className={styles.radioInputDiv}>
                         <div className={styles.radioDivision}>
                           <div
                             className={
@@ -209,12 +215,16 @@ const AppList = ({ sentFetchedData, styles }) => {
                         </div>
                         <p>no</p>
                       </div>
-                      <h5>What would you speak about at Devtalk?</h5>
-                      <textarea
-                        className={styles.textArea}
-                        value={index.devtalk_topic}
-                        readOnly
-                      ></textarea>
+                      {index.will_organize_devtalk === "yes" && (
+                        <React.Fragment>
+                          <h5>What would you speak about at Devtalk?</h5>
+                          <textarea
+                            className={styles.textArea}
+                            value={index.devtalk_topic}
+                            readOnly
+                          />
+                        </React.Fragment>
+                      )}
                       <h5>Tell us somthing special</h5>
                       <textarea
                         className={styles.textArea}

@@ -26,7 +26,7 @@ const skillSlice = createSlice({
           experience: newItem.year,
         });
       } else {
-        state.error = "no Duplications";
+        state.error = "You Already Added That Skill!";
       }
     },
     addError: (state, action) => {

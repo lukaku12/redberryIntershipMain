@@ -124,23 +124,28 @@
   display: flex;
   gap: 20%;
 }
-.skillset{
+.skillset {
   margin-left: 50px;
 }
-.date{
+.date {
   width: 80%;
   height: 54px;
   padding-left: 3rem;
   max-width: 349px;
   margin-bottom: 20px;
 }
-.date:last-child{
+.date:last-child {
   margin-bottom: 80px;
 }
 .fetchedApps h5 {
   margin: 30px 0px;
 }
-.radioDivision{
+.radioInputDiv {
+  display: flex;
+  gap: 5px;
+}
+
+.radioDivision {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,7 +154,7 @@
   border-radius: 50%;
   border: 2px solid black;
 }
-.acitveRadio{
+.acitveRadio {
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -198,7 +203,7 @@
     display: flex;
     justify-content: space-evenly;
   }
-  .skillset{
+  .skillset {
     margin-left: 0px;
   }
 }

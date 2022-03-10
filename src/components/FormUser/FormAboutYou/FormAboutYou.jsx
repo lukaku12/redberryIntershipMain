@@ -46,18 +46,20 @@ const FormAboutYou = () => {
             <small>No</small>
           </div>
         </div>
-        <div className={styles.label}>
-          <label htmlFor="devTalk">
-            What would you speak about at Devtalk?
-          </label>
-          <textarea
-            className={styles.textAreaAbout}
-            placeholder="I would..."
-            name="AboutDevTalk"
-            value={aboutYouData.AboutDevTalk}
-            onChange={handleChange}
-          ></textarea>
-        </div>
+        {aboutYouData.attend === "yes" && (
+          <div className={styles.label}>
+            <label htmlFor="devTalk">
+              What would you speak about at Devtalk?
+            </label>
+            <textarea
+              className={styles.textAreaAbout}
+              placeholder="I would..."
+              name="AboutDevTalk"
+              value={aboutYouData.AboutDevTalk}
+              onChange={handleChange}
+            ></textarea>
+          </div>
+        )}
         <div className={styles.label}>
           <label htmlFor="devTalk">Tell us something special</label>
           <textarea
